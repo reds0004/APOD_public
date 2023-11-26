@@ -1,0 +1,428 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+/* end of meyer reset */
+
+
+/* Mobile First - default styles */
+/* general */
+
+/* hide skip link */
+.skip {
+    position: absolute;
+    left: -10000px;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+
+/* display skip link on focus */
+.skip:focus {
+    position: static;
+    width: auto;
+    height: auto;
+  }
+
+body {
+    background-color: #465973;
+    color: #E9F4FD;
+    font-family: 'Roboto', sans-serif;
+}
+
+/* h1 styles */
+h1 {
+    font-family: 'Teko', sans-serif;
+    text-decoration: underline;
+    font-size: 5rem;
+}
+
+/* h2 styles */
+h2 {
+    font-size: 2rem;
+}
+
+/* h3 styles */
+h3 {
+    margin-top: 2rem;
+    text-align: center;
+}
+
+/* center items in header */
+header {
+    text-align: center;
+}
+
+/* style the button in header (only visible page load mobile)  */
+header button {
+    margin-top: 0.5rem;
+    padding: 0.5rem 1rem;
+    border: 2px solid Black;
+    font-family: 'Teko', sans-serif;
+    font-size: 1rem;
+}
+
+/* margin spaceing */
+article {
+    margin-top: 1rem;
+}
+
+/* hover and active states for buttons */
+button:active,
+button:hover {
+    text-decoration: underline;
+    background-color: #24221A;
+    color: #E9F4FD;
+    cursor: pointer;
+}
+
+/* grid setup */
+.main-content-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+    "head"
+    "article"
+    "nav";
+}
+
+/* positioning header on grid */
+.blue-header {
+    grid-area: head;
+}
+
+/* positioning article on grid */
+.blue-article {
+    grid-area: article;
+}
+
+/* positioning footer on grid */
+.orange-nav {
+    grid-area: nav;
+    background-color: #F5852F;
+    color: #24221A;
+    padding-bottom: 5rem;
+}
+
+/* main figure stlyes */
+figure {
+    padding: 0 1rem;
+}
+/* center h2 text in h2 below apod img  */
+.name-fav-bar h2 {
+    text-align: center;
+    padding: 1rem 0;
+}
+
+picture {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* generic picture styling */
+picture img {
+    display: block;
+    max-height: 80vh;
+    height: auto;
+    max-width: 80vh;
+    height: auto;
+}
+
+/* fig caption styling */
+figcaption {
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* styling p in figcaption */
+figure figcaption p {
+    text-align: center;
+    margin-bottom: 1rem;
+    /* for readability */
+    line-height: 1.25;
+}
+
+/* styles for bar with svg and apod title */
+.name-fav-bar {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+/* styles for svgs */
+.name-fav-bar button {
+    background-color: #465973;
+}
+
+.svg-left svg, .svg-right svg{
+    width: 20px;
+    height: 20px;
+}
+
+.svg-trash,
+.svg-heart {
+    stroke: #E9F4FD;
+    fill: none;
+}
+
+.svg-trash:hover,
+.svg-trash:focus,
+.svg-heart:hover,
+.svg-heart:focus {
+    cursor: pointer;
+}
+
+/* styline container with date picker */
+.date-container {
+    display: flex;
+    flex-direction: column;
+    margin: 0 1rem;
+}
+
+/* style for date container label */
+.date-container label {
+    margin-top: 0.5rem;
+}
+
+/* style for date container input */
+.date-container input { 
+    margin-top: 0.5rem;
+    border: 2px solid black;
+    font-family: 'VT323', monospace;
+    text-align: center;
+    font-size: 1rem;
+    width: 100%;
+    max-width: 100%;
+}
+
+/* hover and active states for date picker */
+.date-container input:active,
+.date-container input:hover { 
+  cursor: pointer;
+}
+
+/* style for date container button */
+.date-container button {
+    margin-top: 0.5rem;
+    padding: 0.5rem 0;
+    border: 2px solid Black;
+    font-family: 'Teko', sans-serif;
+    font-size: 1rem;
+    width: 100%;
+    max-width: 100%;
+}
+
+
+/* favourites container styles */
+.favourites-container {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+/* style h2 in favourites */
+.favourites-container h2 button{
+    font-size: 1.5rem;
+}
+
+/* style button in h2 */
+.favourites-container button {
+    background-color: inherit;
+    border: none;
+}
+
+.fullscreen-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+}
+
+/* hover and focus states for fav container button */
+.favourites-container button:focus, 
+.favourites-container button:hover {
+    text-decoration: underline;
+    color: #24221A;
+}
+
+.fav-desktop {
+    display: none;
+}
+
+/* favourites list ul */
+#favourites-list {
+    overflow: auto;
+    max-height: 100vh;
+}
+
+/* spacing fav ul li */
+.favourites-container ul li {
+    margin-top: 0.5rem;
+}
+
+/* favourites link styling */
+.favourites-container li a {
+    color: #24221A;
+    text-decoration: none;
+}
+
+/* li a hove and focus styles */
+.favourites-container li a:hover,
+.favourites-container li a:focus {
+    text-decoration: underline;
+}
+
+/* visited favourite links styles */
+.favourites-container li a:visited {
+    color: #24221A;
+}
+
+.thumbnail {
+    width: 100%;
+    height: auto;
+}
+
+/* modal stuff */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.9);
+  }
+  
+.modal-content {
+    margin: 0 auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+}
+
+#myModal {
+    overflow: auto;
+}
+
+#hdImage {
+    margin: 0 auto 5rem auto
+}
+
+#caption {
+    margin-bottom: 10rem;
+    padding: 0 2rem;
+    text-align: center;
+}
+
+.close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+
+/* large tablet */
+@media (min-width: 600px) {
+    .main-content-container {
+        grid-template-columns: 2fr 6fr;
+        grid-template-areas:
+        "nav head"
+        "nav article";
+    }
+
+    .hide-on-fullscreen {
+        display: none;
+    }
+
+    /* display dekstop h2 */
+    .fav-desktop {
+        display: block;
+    }
+
+    /* hide mobile h2*/
+    .fav-mobile {
+        display: none;
+    }
+
+    .fs-grid {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        overflow: visible;
+    }
+
+    .fs-grid li {
+        max-width: 25vw;
+    }
+
+    .fs-grid li button img {
+        max-height: 25vw;
+    }
+
+    .orange-nav {
+        overflow: auto;
+    }
+
+    #datePicker,
+    #date-picker-search {
+        max-width: 25vw;
+        align-self: center;
+    }
+}

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&family=Teko:wght@400;600&family=VT323&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="main-content-container">
+        <header class="blue-header">
+            <a href="#apodName" class="skip">Skip to main content</a>
+            <h1>NASA APOD</h1>
+            <h2 id="apodDate">Pick A Date</h2>
+            <!-- button to trigger event listener-->
+            <button id="loadTodayBtn">Or Load Today's APOD</button>
+        </header>
+        <main class="blue-article">
+            <article>
+                <div id="apodResult"></div>
+                <figure id="APODfigure">
+                    <!-- location for apod picture -->
+                    <picture >
+                        <!-- placeholder with # for validation -->
+                        <img src="#" alt="#" id="apodPicture">
+                    </picture>
+                    <figcaption>
+                        <div class="name-fav-bar">
+                            <!-- spans will have to change to buttons -->
+                            <button id="svg-trash" class="svg-left">
+                                <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path class="svg-trash" d="M4 7 L4 22 L20 22 L20 7 Q18 4 12 4 Q6 4 4 7 M2 7 L22 7"/>
+                                </svg>
+                            </button>
+                            <h2 id="apodName">Name of APOD</h2>
+                            <button id="svg-heart" class="svg-right">
+                                <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path class="svg-heart" d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                                </svg>
+                            </button>
+                        </div>
+                        <!-- location for apod description -->
+                        <p id="apodCaption"></p>
+                    </figcaption>
+                </figure>
+            </article>
+            <div id="myModal" class="modal">
+                <span class="close">&times;</span>
+                <img src="#" alt="#" class="modal-content" id="hdImage">
+                <div id="caption"></div>
+            </div>
+        </main>
+        <footer class="orange-nav">
+            <nav>
+                <section class="date-container">
+                    <h3><label for="datePicker">Choose APOD date</label></h3>
+                    <!-- date picker -->
+                    <input type="date" id="datePicker" name="date">
+                    <button id="date-picker-search">Fetch APOD</button>
+                </section>
+                <section class="favourites-container">
+                    <h2 class="fav-mobile">Favourites</h2>
+                    <h2 class="fav-desktop"><button id="fav-button">Favourites ></button></h2>
+                    <ul id="favourites-list">
+                         <!-- content by JS --> 
+                    </ul>
+                    <button id="clearFavoritesBtn">Clear All Favorites</button>
+                </section>
+            </nav>
+        </footer>
+    </div>
+<footer>
+
+</footer>
+    <script src="script.js"></script>
+</body>
+</html>
