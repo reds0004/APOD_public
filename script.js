@@ -1,19 +1,11 @@
 // Event listener for DOMContentLoaded to initialize the application
 document.addEventListener('DOMContentLoaded', () => {
-    if (window.innerWidth > 600) {
-        fetchTodayAPOD();
-    }
+    fetchAPOD(); // Fetches today's APOD by default
     setupEventListeners();
     displayFavorites(); // Populate the favorites list on page load
     document.getElementById('clearFavoritesBtn').addEventListener('click', clearAllFavorites);
     document.getElementById('fav-button').addEventListener('click', toggleFullscreenNav);
 });
-
-// Fetches and displays today's APOD
-function fetchTodayAPOD() {
-    fetchAPOD();
-    document.getElementById('loadTodayBtn').style.display = 'none';
-}
 
 // Fetches APOD data from the NASA API or local storage
 function fetchAPOD(date = new Date().toISOString().slice(0, 10)) {
@@ -28,6 +20,8 @@ function fetchAPOD(date = new Date().toISOString().slice(0, 10)) {
         fetch(APODurl)
             .then(response => response.json())
             .then(data => {
+                // trying to fetch default date too close to midnight causes grief
+                console.log("Fetching APOD for date:", date);
                 updateAPODDisplay({
                     date: data.date,
                     title: data.title,
@@ -66,7 +60,11 @@ function setupEventListeners() {
 
 function handleDatePickerSearch() {
     const selectedDate = document.getElementById('datePicker').value;
-    fetchAPOD(selectedDate);
+    if (selectedDate) {
+        fetchAPOD(selectedDate);
+    } else {
+        fetchAPOD(); // Calls fetchAPOD without a date, which will default to today's date
+    }
 }
 
 // Toggles the favoriting status of an APOD
